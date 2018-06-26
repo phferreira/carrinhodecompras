@@ -13,36 +13,24 @@ public class CarrinhoCompraTest {
 
 	@Test
 	public void comprarProdutos() {
-		Produto pao = new Produto();
-		Produto queijo = new Produto();
-		Produto presunto = new Produto();
-		Produto agua = new Produto();
+		Produto pao = new Produto(0.22, "Pão", null);
+		Produto queijo = new Produto(1.21, "Queijo", null);
+		Produto presunto = new Produto(0.57, "Presunto", null);
+		Produto agua = new Produto(0.85, "Agua", TipoProduto.BEBIDA);
+		Produto camisa = new Produto(100.0, "Camisa", TipoProduto.VESTUARIO);
 
-		pao.setDescricao("Pão");
-		queijo.setDescricao("Queijo");
-		presunto.setDescricao("Presunto");
-		agua.setDescricao("Água");
+		Carrinho carrinho1 = new Carrinho();
+		Carrinho carrinho2 = new Carrinho();		
 
-		pao.setPrecoUnitario(0.22);
-		queijo.setPrecoUnitario(1.21);
-		presunto.setPrecoUnitario(0.57);
-		agua.setPrecoUnitario(1.0);
+		carrinho1.adicionarProduto(new Item(3.0, pao));
+		carrinho1.adicionarProduto(new Item(3.0, queijo));
+		carrinho1.adicionarProduto(new Item(3.0, presunto));
+		carrinho1.adicionarProduto(new Item(1.0, agua));
 
-		agua.setTipoProduto(TipoProduto.BEBIDA);
-
-		Carrinho carrinho = new Carrinho();
-
-		Item item1 = new Item(3.0, pao);
-		Item item2 = new Item(3.0, queijo);
-		Item item3 = new Item(3.0, presunto);
-		Item item4 = new Item(1.0, agua);
-
-		carrinho.adicionarProduto(item1);
-		carrinho.adicionarProduto(item2);
-		carrinho.adicionarProduto(item3);
-		carrinho.adicionarProduto(item4);
-
-		assertEquals(Double.valueOf(6.0), carrinho.calcularTotalCarrinho());
+		carrinho2.adicionarProduto(new Item(1.0, camisa));
+		
+		assertEquals(Double.valueOf(6.8075), carrinho1.calcularTotalCarrinho());
+		assertEquals(Double.valueOf(75.0), carrinho2.calcularTotalCarrinho());		
 	}
 
 }

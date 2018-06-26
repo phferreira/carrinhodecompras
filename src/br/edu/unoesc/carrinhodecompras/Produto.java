@@ -5,6 +5,13 @@ public class Produto {
 	private String descricao;
 	private TipoProduto tipoProduto;
 
+	public Produto(Double precoUnitario, String descricao, TipoProduto tipoProduto) {
+		super();
+		this.precoUnitario = precoUnitario;
+		this.descricao = descricao;
+		this.tipoProduto = tipoProduto;
+	}
+
 	public TipoProduto getTipoProduto() {
 		return tipoProduto;
 	}
@@ -32,7 +39,7 @@ public class Produto {
 	public Double calularPreco() {
 		if (this.tipoProduto != null) {
 			return tipoProduto.Calcular(this);
-		}else {
+		} else {
 			return getPrecoUnitario();
 		}
 	}
