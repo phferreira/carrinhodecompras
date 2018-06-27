@@ -1,10 +1,10 @@
 package br.edu.unoesc.carrinhodecompras;
 
-public class CalcularDescontoBebida implements RegraCalculo {
+public class CalcularDescontoBebida extends CalcularDesconto implements RegraCalculo {
 
 	@Override
 	public Double calcularDesconto(Produto produto) {
-		return (produto.getPrecoUnitario() - (produto.getPrecoUnitario() * 0.05));
+		return super.calcularDesconto(produto.getPrecoUnitario(), 5.0);
 	}
 
 }

@@ -1,6 +1,6 @@
 package br.edu.unoesc.carrinhodecompras;
 
-public class Item {
+public class Item  implements Comparable<Item>{
 	private Double quantidade;
 	private Produto produto;
 
@@ -27,5 +27,19 @@ public class Item {
 	
 	public Double calcularPrecoTotal() {
 		return (produto.calularPreco() * quantidade);
+	}
+	
+	public String exibirProduto() {
+		return this.produto.getDescricao() + "|" +
+			   String.valueOf(this.produto.getPrecoUnitario()) + "|" +
+			   String.valueOf(this.quantidade) + "|" +
+			   String.valueOf(this.produto.calularPreco() + "|" +
+			   String.valueOf(calcularPrecoTotal()));
+				
+	}
+
+	@Override
+	public int compareTo(Item item) {
+		return Double.compare(this.produto.getPrecoUnitario(), item.produto.getPrecoUnitario());
 	}
 }

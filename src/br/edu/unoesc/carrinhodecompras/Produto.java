@@ -1,15 +1,23 @@
 package br.edu.unoesc.carrinhodecompras;
 
+import java.util.Random;
+
 public class Produto {
+	private Integer codigoProduto;
 	private Double precoUnitario;
 	private String descricao;
 	private TipoProduto tipoProduto;
 
 	public Produto(Double precoUnitario, String descricao, TipoProduto tipoProduto) {
 		super();
+		this.codigoProduto = new Random().nextInt(100);
 		this.precoUnitario = precoUnitario;
 		this.descricao = descricao;
 		this.tipoProduto = tipoProduto;
+	}
+
+	public Integer getCodigoProduto() {
+		return codigoProduto;
 	}
 
 	public TipoProduto getTipoProduto() {
